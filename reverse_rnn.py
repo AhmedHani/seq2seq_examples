@@ -117,7 +117,7 @@ model.add(layers.RepeatVector(MAX_LENGTH))
 
 # Adding multiple hidden layers according to the number of hidden layers specified by us
 for l in range(0, LAYERS):
-    model.add(layers.LSTM(HIDDEN_LAYER_SIZE, return_sequences=True))
+    model.add(layers.SimpleRNN(HIDDEN_LAYER_SIZE, return_sequences=True))
 
 # For each timesteps, we shall have a dense layer so that we could be able to use a Softmax activation for classification
 model.add(layers.TimeDistributed(layers.Dense(VOCAB_SIZE)))
